@@ -1,0 +1,12 @@
+#PBS -N myjob
+#PBS -o /home/zhanght/assignment3/myjob.out
+#PBS -e /home/zhanght/assignment3/myjob.err
+#PBS -l nodes=1:gpus=1:S
+#PBS -r y
+cd $PBS_O_WORKDIR
+echo Time is `date`
+echo Directory is $PWD
+echo This job runs on following nodes:
+cat $PBS_NODEFILE
+cat $PBS_GPUFILE
+python /home/zhanght/assignment3/GAN_gpu.py
